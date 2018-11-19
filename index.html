@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <title>RSA</title>
+</head>
+<body>
+    <fieldset id="input_data">
+        <legend><h4>Input data for RSA key calculation</h4></legend>
+        <div class="float-left">
+            <label for="numberP"> p </label><br/>
+            <input type="number" id = "numberP" /> 
+        </div>
+        <div class="float-left">
+            <label for="numberQ"> q </label><br/>
+            <input type="number" id = "numberQ"/>
+        </div>
+    </fieldset>
+    <button type="button" id="RSA">RSA</button>
+    <fieldset id="RSA_keys">
+        <legend><h4>RSA Coefficients and keys</h4></legend>
+        <div class="float-left">
+            <label for="n" class="center"> n = p * q </label><br/>
+            <input type="number" readonly id = "n" class="center" value='0'/><br/>
+            <label for="e" class="center"> e - open exponent </label><br/>
+            <input type="number" readonly id = "e" class="center" value='0'/><br/>
+            <label for="public" class="center"> Public key: (e,n) </label><br/>
+            <input type="number" readonly class = "public" value='0'/>
+            <input type="number" readonly class = "public" value='0'/>
+        </div>
+        <div class="float-left">
+            <label for="fi" class="center"> fi = (p - 1) * (q - 1) </label><br/>
+            <input type="number" readonly id = "fi" class="center" value='0'/><br/>
+            <label for="d" class="center"> d - private </label><br/>
+            <input type="number" readonly id = "d" class="center" value='0'/><br/>
+            <label for="private" class="center"> Private key: (d,n) </label><br/>
+            <input type="number" readonly class = "private" value='0'/>
+            <input type="number" readonly class = "private" value='0'/>
+        </div>
+    </fieldset>
+    <fieldset id="encrypt">
+        <legend><h4>Encrypt and decrypt using the RSA public and private keys</h4></legend>
+        <div class="flex-item1">
+            <label for="data" > Input data for encryption</label>
+            <input type="number" id = "data"/>
+        </div>
+        
+        <div class="flex-item2">
+            <div>
+                <p>Encrypted data </p>
+                <input type="number" readonly id = "Encrypt"  value='0'/>
+                <p>((input data) ^ e) % n</p>
+            </div>
+            <div>
+                <p>Decrypted data</p>
+                <input type="number" readonly id = "Decrypt"  value='0'/>
+                <p>((Encrypted data) ^ d) % n</p>
+            </div>
+        </div>
+    </fieldset>
+    <div id="buttons">
+        <button type="button" id="encryption">Encrypt</button>
+        <button type="button" id="decryption">Decrypt</button>
+    </div> 
+    <script src="script.js"></script> 
+</body>
+</html>
